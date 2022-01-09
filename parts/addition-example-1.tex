@@ -1,0 +1,137 @@
+Пример приложения. Какой-то текст. Какой-то текст. Какой-то текст. Какой-то текст. Какой-то текст. Какой-то текст. Какой-то текст. Какой-то текст. Какой-то текст. Какой-то текст. Какой-то текст. Какой-то текст.
+
+Тут ссылка на листинг~\ref{kotlin:1}.
+
+А тут ссылка на листинг~\ref{bytecode:1}.
+
+\begin{lstlisting}[language=kotlin,moredelim={**[is][\btHL]{[@}{@]}},escapeinside={`}{`},caption={Пример какого-то кода на Kotlin},label=kotlin:1]
+@Deprecated("Reason")
+fun findScriptDefinition(project: Project, script: SourceCode): ScriptDefinition? {
+  val scriptDefinitionProvider = ScriptDefinitionProvider.getInstance(project) ?: [@return null@]
+  ``[@?:@] throw IllegalStateException("Unable to get script definition: ...")
+
+  return scriptDefinitionProvider.findDefinition(script) ?: scriptDefinitionProvider.getDefaultDefinition() // Comment
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=java,caption={Пример какого-то кода на Java},label=java:1]
+class Main {
+  public static ScriptDefinition findScriptDefinition(Project project, SourceCode script) {
+    ScriptDefinitionProvider scriptDefinitionProvider = ScriptDefinitionProvider.getInstance(project);
+    if (scriptDefinitionProvider == null) {
+      if (null == null) {
+        throw IllegalStateException("Unable to get script definition: ...");
+      } else {
+        return null;
+      }
+    }
+
+    ScriptDefinition definition = scriptDefinitionProvider.findDefinition(script);
+    if (definition == null) {
+      return scriptDefinitionProvider.getDefaultDefinition(); // Comment
+    } else {
+      return definition;
+    }
+  }
+}
+\end{lstlisting}
+
+\newcommand{\createlinenumber}[2]{
+    \edef\thelstnumber{%
+        \unexpanded{%
+            \ifnum#1=\value{lstnumber}\relax
+              #2%
+            \fi%
+        }%
+        \ifx\thelstnumber\relax%
+        \else\expandafter\unexpanded\expandafter{\thelstnumber}%
+        \fi%
+    }
+}
+
+\bgroup
+\let\thelstnumber\relax
+\createlinenumber{2}{13}
+\createlinenumber{3}{14}
+\createlinenumber{4}{15}
+\createlinenumber{5}{18}
+\createlinenumber{6}{21}
+\createlinenumber{7}{22}
+\createlinenumber{8}{24}
+\createlinenumber{9}{27}
+
+\createlinenumber{11}{46}
+\createlinenumber{12}{47}
+\createlinenumber{13}{48}
+\createlinenumber{14}{51}
+\createlinenumber{15}{54}
+\createlinenumber{16}{55}
+\createlinenumber{17}{57}
+\createlinenumber{18}{60}
+\begin{lstlisting}[language=JVMIS,moredelim={**[is][\btHL]{[@}{@]}},escapeinside={`}{`},caption={Пример JVM-байткода},label=bytecode:1,numbers=left]
+...
+aload_2
+dup
+[@ifnonnull     28@]
+new           #17 // NullPointerException
+dup
+ldc           #19 // String null cannot be cast to non-null String
+invokespecial #23 // NullPointerException."<init>"(String)
+athrow
+...
+aload_2
+dup
+[@ifnonnull     61@]
+new           #17 // NullPointerException
+dup
+ldc           #19 // String null cannot be cast to non-null String
+invokespecial #23 // NullPointerException."<init>"(String)
+athrow
+...
+\end{lstlisting}
+\egroup
+
+\begin{lstlisting}[language=JVMIS,moredelim={**[is][\btHL]{[@}{@]}},numbers=none,escapeinside={`}{`},caption={Пример JVM-байткода 2},label=bytecode:2]
+...
+13: aload_2
+14: dup
+[@15: ifnonnull     28@]
+18: new           #17 // NullPointerException
+21: dup
+22: ldc           #19 // String null cannot be cast to non-null String
+24: invokespecial #23 // NullPointerException."<init>"(String)
+27: athrow
+...
+46: aload_2
+47: dup
+[@48: ifnonnull     61@]
+51: new           #17 // NullPointerException
+54: dup
+55: ldc           #19 // String null cannot be cast to non-null String
+57: invokespecial #23 // NullPointerException."<init>"(String)
+60: athrow
+...
+\end{lstlisting}
+
+А тут ссылка на таблицу~\ref{table:1}.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{| c | c | c | c |} 
+    \hline
+    Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
+    \hline
+    1 & 6 & 87837 & 787 \\
+    \hline
+    2 & 7 & 78 & 5415 \\
+    \hline
+    3 & 545 & 778 & 7507 \\
+    \hline
+    4 & 545 & 18744 & 7560 \\
+    \hline
+    5 & 88 & 788 & 6344 \\
+    \hline
+\end{tabular}
+\caption{Пример таблицы}
+\label{table:1}
+\end{table}

@@ -1,0 +1,38 @@
+\documentclass{includes/Thesis}
+
+\addbibresource{parts/refs.bib}
+
+\begin{thesis}[
+    title = Анализ обработки исключений для языков Java и Kotlin в статическом анализаторе Svace,
+    year = 2022,
+    %
+    authorGroup = БПИ182,
+    authorName = В. О. Афанасьев,
+    %
+    academicTeacherTitle = преподаватель базовой кафедры\\<<Системное программирование>>\\ИСП РАН в НИУ ВШЭ, 
+    academicTeacherName = А. Е. Волков,
+    %
+    isAcademic,
+    UDC = 004.05,
+    %
+    hasConsultant,
+    consultantTitle = младший научный сотрудник\\Института системного программирования\\РАН,
+    consultantName = С. А. Поляков,
+    %
+    keywordsRu = статический анализ; поиск ошибок; обработка исключений; Java; Kotlin; JVM; байткод,
+    keywordsEn = static analysis; search for defects; exception handling; Java; Kotlin; JVM; bytecode,
+]
+
+    \setAbstractResource{parts/abstract-ru}{parts/abstract-en}
+
+    \setTerminologyResource{parts/terminology}
+
+    \setIntroResource{parts/intro}
+
+    \addChapter{Обзор источников}{parts/chapter1}
+    \addChapter{Какая-нибудь ещё глава}{parts/chapter2}
+
+    \addAddition{Пример приложения}{parts/addition-example-1}
+    \addAddition{Ещё один пример приложения}{parts/addition-example-2}
+
+\end{thesis}
