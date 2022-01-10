@@ -6,3 +6,6 @@
 *.out
 *.run.xml
 *.toc
+*.dvi
+*.fls
+*.fdb_latexmk

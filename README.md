@@ -58,6 +58,10 @@ biber main
 pdflatex --shell-escape --interaction=nonstopmode main
 pdflatex --shell-escape --interaction=nonstopmode main
 ```
+Либо зиспользуйте `latexmk`:
+```bash
+latexmk main -pdf
+```
 
 ## Описание возможностей <a name="features"></a>
 
