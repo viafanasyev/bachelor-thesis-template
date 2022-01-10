@@ -346,7 +346,9 @@
 \newcommand{\@makeReferences}{
     \label{LastPage} % Don't count bibliography and additions in total pages counter. TODO: Should it be here or after bibliography?
     \clearpage % Original \printbibliography doesn't end page
+    \phantomsection
     \printbibliography[title=Список использованных источников]
+    \addcontentsline{toc}{section}{Список использованных источников}
 }
 
 %% Additions
