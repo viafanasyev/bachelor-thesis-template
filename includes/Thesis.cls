@@ -341,6 +341,21 @@
     \fi%
 }
 
+%% Conclusion
+
+\newcommand{\@conclusion}[1]{%
+    \clearpage
+    \phantomsection
+    \section*{Заключение}
+    \addcontentsline{toc}{section}{Заключение}
+    \input{#1}
+}
+
+\newcommand*\@makeConclusion{\@conclusion{conclusion}}
+\newcommand*\setConclusionResource[1]{%
+    \def\@makeConclusion{\@conclusion{#1}}%
+}
+
 %% References
 
 \newcommand{\@makeReferences}{
@@ -399,6 +414,7 @@
         \@makeContents
         \@makeIntro
         \@makeChapters
+        \@makeConclusion
         \@makeReferences
         \@makeAdditions
 

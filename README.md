@@ -98,7 +98,8 @@ latexmk main -pdf
 * `\setTerminologyResource{path/to/terminology}` - терминология;
 * `\setIntroResource{path/to/intro}` - введение;
 * `\addChapter{Название главы}{path/to/chapter}` - добавление новой главы с указанным названием;
-* `\addAddition{Название приложения}{path/to/addtion}` - добавление нового приложения с указанным названием.
+* `\setConclusionResource{path/to/conclusion}` - заключение;
+* `\addAddition{Название приложения}{path/to/addition}` - добавление нового приложения с указанным названием.
 
 Порядок указания команд влияет на порядок листов только в случае с главами и приложениями, в остальных случаях порядок не имеет значения.
 
