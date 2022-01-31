@@ -208,6 +208,31 @@ int main() {
 
 Можно включить подсветку аннотаций самостоятельно, используя подход [отсюда](https://tex.stackexchange.com/questions/115467/listings-highlight-java-annotations).
 
+### Хочу добавить секцию "Выводы по главе"
+
+Есть три варианта:
+
+1. С нумерацией:
+
+```latex
+\subsection{Выводы по главе}
+```
+
+2. Без нумерации, но не включая в содержание:
+
+```latex
+\subsection*{Выводы по главе}
+```
+
+3. Без нумерации и включая в содержание:
+
+```latex
+\subsection*{Выводы по главе}
+\addcontentsline{toc}{subsection}{Выводы по главе}
+```
+
+Пример использования третьего варианта можно посмотреть [здесь](https://github.com/viafanasyev/bachelor-thesis-template/blob/master/parts/chapter1.tex).
+
 ## Нашёл ошибку / Хочу помочь <a name="contributing"></a>
 
 О всех проблемах и интересующих улучшениях можно сообщать в [issue](https://github.com/viafanasyev/bachelor-thesis-template/issues).  
