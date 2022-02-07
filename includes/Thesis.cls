@@ -27,7 +27,6 @@
 \LoadClass[a4paper, 12pt]{article}
 
 \RequirePackage{geometry}
-\RequirePackage{listings}
 \RequirePackage{fancyhdr}
 \RequirePackage{setspace}
 \RequirePackage{titlesec}
@@ -50,6 +49,7 @@
 \RequirePackage{datatool}
 \RequirePackage{ifthen}
 \RequirePackage[main=russian,english]{babel}
+\RequirePackage{listings}
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{soulutf8}
 \RequirePackage{totcount}
