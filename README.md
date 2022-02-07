@@ -233,6 +233,18 @@ int main() {
 
 Пример использования третьего варианта можно посмотреть [здесь](https://github.com/viafanasyev/bachelor-thesis-template/blob/master/parts/chapter1.tex).
 
+### В lstlisting не отображается текст на русском языке. Что делать?
+
+lstlisting плохо дружит с Unicode. Можно попробовать один из подходов [отсюда](https://tex.stackexchange.com/questions/108692/listing-with-mixed-english-and-russian-symbols-in-comments), например, добавить параметр `texcl=true`:
+
+```latex
+\begin{lstlisting}[language=java, texcl=true]
+public void foo() {
+    System.out.println("Hello"); // Это комментарий на русском языке
+}
+\end{lstlisting}
+```
+
 ## Нашёл ошибку / Хочу помочь <a name="contributing"></a>
 
 О всех проблемах и интересующих улучшениях можно сообщать в [issue](https://github.com/viafanasyev/bachelor-thesis-template/issues).  
