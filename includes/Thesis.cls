@@ -362,7 +362,9 @@
     \label{LastPage} % Don't count bibliography and additions in total pages counter. TODO: Should it be here or after bibliography?
     \clearpage % Original \printbibliography doesn't end page
     \phantomsection
+    \begin{sloppypar} % Prevents overfull in bibliography
     \printbibliography[title=Список использованных источников]
+    \end{sloppypar}
     \addcontentsline{toc}{section}{Список использованных источников}
 }
 
