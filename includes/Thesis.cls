@@ -689,7 +689,7 @@
 }{
     \DTLsort*{termLabel}{list}
     \begin{itemize}
-        \DTLforeach*{list}{\theLabel=termLabel, \theDesc=termDesc}{\item[] \textbf{\theLabel} ~-- \theDesc.}
+        \DTLforeach*{list}{\theLabel=termLabel, \theDesc=termDesc}{\item[] \textbf{\theLabel}~-- \theDesc.}
     \end{itemize}
 }
 
