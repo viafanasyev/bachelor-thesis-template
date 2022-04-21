@@ -121,7 +121,7 @@
         educationalProgram = 09.03.04 <<Программная инженерия>>,
         academicTeacherTitle = \@TODO,
         academicTeacherName = \@TODO,
-        academicSupervisorTitle = Академический руководитель\\образовательной программы\\<<Программная инженерия>>\\профессор департамента программной\\инженерии\, канд. техн. наук,
+        academicSupervisorTitle = {Академический руководитель\\образовательной программы\\<<Программная инженерия>>,\\профессор департамента программной\\инженерии, канд. техн. наук},
         academicSupervisorName = В. В. Шилов,
         consultantTitle = \@TODO,
         consultantName = \@TODO,
