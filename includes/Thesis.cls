@@ -754,4 +754,18 @@
     sensitive=true
 }
 
+% Source: https://github.com/korfuri/golang-latex-listings
+\lstdefinelanguage{golang}{
+    morekeywords=[1]{break, default, func, interface, select, case, defer, go, map, struct, chan, else, goto, package, switch, const, fallthrough, if, range, type, continue, for, import, return, var},
+    morekeywords=[2]{append, cap, close, complex, copy, delete, imag, len, make, new, panic, print, println, real, recover},
+    morekeywords=[3]{bool, byte, complex64, complex128, error, float32, float64, int, int8, int16, int32, int64, rune, string, uint, uint8, uint16, uint32, uint64, uintptr},
+    morekeywords=[4]{true, false, iota, nil},
+    morestring=[b]{"},
+    morestring=[b]{'},
+    morestring=[b]{`},
+    comment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    sensitive=true
+}
+
 % TODO: Smart figures, tables
