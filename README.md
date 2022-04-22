@@ -202,7 +202,7 @@ int main() {
 
 Вариант 2. Используем подход [отсюда](https://tex.stackexchange.com/questions/42054/custom-line-numbers-in-lstlisting-environment), перенумеруя каждую строку вручную. Подход трудоёмкий, но куда более элегантный.
 
-Примеры использования обоих вариантов можно посмотреть [здесь](https://github.com/viafanasyev/bachelor-thesis-template/blob/master/parts/abstract-ru.tex).
+Примеры использования обоих вариантов можно посмотреть [здесь](https://github.com/viafanasyev/bachelor-thesis-template/blob/master/parts/addition-example-1.tex).
 
 ### В листинге для Java не выделяются аннотации
 
