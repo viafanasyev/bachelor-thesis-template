@@ -69,7 +69,6 @@
     bibencoding=utf8,
     language=auto,
     autolang=other,
-    sorting=nyt,
     defernumbers=true,
     doi=false,
     eprint=false,
@@ -108,6 +107,7 @@
 \define@key{thesisKeys}{isAuthorFemale}[true]{\def\@isAuthorFemale{#1}}
 \define@key{thesisKeys}{keywordsRu}{\def\@keywordsRu{\textbf{Ключевые слова:} #1.}}
 \define@key{thesisKeys}{keywordsEn}{\def\@keywordsEn{\textbf{Keywords:} #1.}}
+\define@key{thesisKeys}{refsSorting}[none]{\def\@refsSorting{#1}}
 \newcommand{\@setThesisKeysDefaults}{
     \setkeys{thesisKeys}{
         institute = ПРАВИТЕЛЬСТВО РОССИЙСКОЙ ФЕДЕРАЦИИ\\ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ АВТОНОМНОЕ\\ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ ВЫСШЕГО ОБРАЗОВАНИЯ\\НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬСКИЙ УНИВЕРСИТЕТ\\<<ВЫСШАЯ ШКОЛА ЭКОНОМИКИ>>,
@@ -130,6 +130,7 @@
         isAuthorFemale = false,
         keywordsRu = \@TODO,
         keywordsEn = \@TODO,
+        refsSorting = none,
     }
 }
 \@setThesisKeysDefaults
@@ -363,7 +364,9 @@
     \clearpage % Original \printbibliography doesn't end page
     \phantomsection
     \begin{sloppypar} % Prevents overfull in bibliography
+    \begin{refcontext}[sorting={\@refsSorting}]
     \printbibliography[title=Список использованных источников]
+    \end{refcontext}
     \end{sloppypar}
     \addcontentsline{toc}{section}{Список использованных источников}
 }
