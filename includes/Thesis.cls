@@ -414,6 +414,10 @@
         \author{\@authorName} % That's used just to suppress warning
         \@makeTitlePage
 }{
+        \setcounter{figure}{0} % Reset counters after title page, because title page could use tables, figures, etc.
+        \setcounter{table}{0}
+        \setcounter{lstlisting}{0}
+
         \@makeAbstract
         \@makeTerminology
         \@makeContents
