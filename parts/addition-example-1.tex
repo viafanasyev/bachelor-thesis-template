@@ -135,3 +135,18 @@ athrow
 \caption{Пример таблицы}
 \label{table:1}
 \end{table}
+
+\begin{lstlisting}[style=algorithmic, caption={Привер псевдокода на алгоритмическом языке}]
+procedure RUN($packages, hashes$)
+    $queue[svace.parallel\_max]$
+    for $item \in zip(packages,hashes) $
+        $ps = create(item)$
+        if $!queue.full()$
+            $queue.put(ps)$
+        else
+            $first = queue.get()$
+            $first.wait()$
+        end if
+    end for
+end procedure
+\end{lstlisting}
