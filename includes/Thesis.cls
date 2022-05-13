@@ -44,6 +44,7 @@
 \RequirePackage{caption}
 \RequirePackage{etoolbox}
 \RequirePackage{array,multirow}
+\RequirePackage{tabularx,ragged2e}
 \RequirePackage{makecell}
 \RequirePackage{keyval}
 \RequirePackage{datatool}
@@ -98,11 +99,14 @@
 \define@key{thesisKeys}{educationalProgram}{\def\@educationalProgram{#1}}
 \define@key{thesisKeys}{academicTeacherTitle}{\def\@academicTeacherTitle{#1}}
 \define@key{thesisKeys}{academicTeacherName}{\def\@academicTeacherName{#1}}
+\define@key{thesisKeys}{academicCoteacherTitle}{\def\@academicCoteacherTitle{#1}}
+\define@key{thesisKeys}{academicCoteacherName}{\def\@academicCoteacherName{#1}}
 \define@key{thesisKeys}{academicSupervisorTitle}{\def\@academicSupervisorTitle{#1}}
 \define@key{thesisKeys}{academicSupervisorName}{\def\@academicSupervisorName{#1}}
 \define@key{thesisKeys}{consultantTitle}{\def\@consultantTitle{#1}}
 \define@key{thesisKeys}{consultantName}{\def\@consultantName{#1}}
 \define@key{thesisKeys}{isAcademic}[true]{\def\@isAcademic{#1}}
+\define@key{thesisKeys}{hasAcademicCoteacher}[true]{\def\@hasAcademicCoteacher{#1}}
 \define@key{thesisKeys}{hasConsultant}[true]{\def\@hasConsultant{#1}}
 \define@key{thesisKeys}{isAuthorFemale}[true]{\def\@isAuthorFemale{#1}}
 \define@key{thesisKeys}{keywordsRu}{\def\@keywordsRu{\textbf{Ключевые слова:} #1.}}
@@ -121,11 +125,14 @@
         educationalProgram = 09.03.04 <<Программная инженерия>>,
         academicTeacherTitle = \@TODO,
         academicTeacherName = \@TODO,
+        academicCoteacherName = \@TODO,
+        academicCoteacherTitle = \@TODO,
         academicSupervisorTitle = {Академический руководитель\\образовательной программы\\<<Программная инженерия>>,\\профессор департамента программной\\инженерии, канд. техн. наук},
         academicSupervisorName = В. В. Шилов,
         consultantTitle = \@TODO,
         consultantName = \@TODO,
         isAcademic = false,
+        hasAcademicCoteacher = false,
         hasConsultant = false,
         isAuthorFemale = false,
         keywordsRu = \@TODO,
@@ -141,10 +148,11 @@
 
 %% Title page
 
-\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{C}{>{\Centering\arraybackslash}X}
 \newcommand*\@makeTitlePage{
     \pagestyle{empty}
     \clearpage
+    \hyphenchar\font=-1 % Disable hyphenation temporarily
 
     \begin{titlepage}
         \begin{center}
@@ -161,16 +169,42 @@
     		    \par\vspace{10mm}
             \fi
 
-    		\begin{tabular}[h!]{P{0.45\textwidth}  P{0.45\textwidth}}
-    			СОГЛАСОВАНО & УТВЕРЖДАЮ\\
-    			& \\
-    			\makecell{Научный руководитель,\\ \@academicTeacherTitle} & \makecell{\@academicSupervisorTitle} \\
-    			& \\
-    			\underline{\hspace{4cm}} \@academicTeacherName & \underline{\hspace{4cm}} \@academicSupervisorName \\
-    			<<\underline{\hspace{1cm}}>> \underline{\hspace{3cm}} \@year{} г. & <<\underline{\hspace{1cm}}>> \underline{\hspace{3cm}} \@year{} г.\\
-    		\end{tabular}
+            \ifx\@hasAcademicCoteacher\@true
+                \begin{table}[h!]
+                \centering
+    		    \begin{tabularx}{\textwidth}{C  C}
+        			СОГЛАСОВАНО & УТВЕРЖДАЮ\\
+        			& \\
+        			\makecell[C]{Научный руководитель,\\ \@academicTeacherTitle} & \multirowcell{4}[1ex][C]{\@academicSupervisorTitle} \\
+        			& \\
+        			\underline{\hspace{4cm}} \@academicTeacherName & \\
+        			<<\underline{\hspace{1cm}}>> \underline{\hspace{3cm}} \@year{} г. & \\
+        			& \\
+        			\makecell[C]{Соруководитель,\\ \@academicCoteacherTitle} & \\
+        			& \\
+        			\underline{\hspace{4cm}} \@academicCoteacherName & \underline{\hspace{4cm}} \@academicSupervisorName \\
+        			<<\underline{\hspace{1cm}}>> \underline{\hspace{3cm}} \@year{} г. & <<\underline{\hspace{1cm}}>> \underline{\hspace{3cm}} \@year{} г.\\
+        		\end{tabularx}
+        		\end{table}
+            \else
+                \begin{table}[h!]
+                \centering
+    		    \begin{tabularx}{\textwidth}{C  C}
+        			СОГЛАСОВАНО & УТВЕРЖДАЮ\\
+        			& \\
+        			\makecell[C]{Научный руководитель,\\ \@academicTeacherTitle} & \makecell[C]{\@academicSupervisorTitle} \\
+        			& \\
+        			\underline{\hspace{4cm}} \@academicTeacherName & \underline{\hspace{4cm}} \@academicSupervisorName \\
+        			<<\underline{\hspace{1cm}}>> \underline{\hspace{3cm}} \@year{} г. & <<\underline{\hspace{1cm}}>> \underline{\hspace{3cm}} \@year{} г.\\
+        		\end{tabularx}
+        		\end{table}
+    		\fi
 
-        	\vspace{15mm}
+            \ifx\@hasAcademicCoteacher\@true
+        	    \vspace{5mm}
+    	    \else
+    	        \vspace{15mm}
+	        \fi
         	\textbf{Выпускная квалификационная работа}\\
         	\ifx\@isAcademic\@true
         	    (академическая)\\
@@ -183,35 +217,40 @@
         	по направлению подготовки \@educationalProgram\\
     	\end{center}
 
-    	\vfill
-    	\hfill
-
         \ifx\@hasConsultant\@true
-		    \begin{tabular}[h!]{P{0.45\textwidth}  P{0.45\textwidth}}
+            \begin{table}[h!]
+            \centering
+		    \begin{tabularx}{\textwidth}{C  C}
     			СОГЛАСОВАНО & \thead{\ifx\@isAuthorFemale\@true ВЫПОЛНИЛА \else ВЫПОЛНИЛ \fi}\\
     			& \\
-    			\makecell{Консультант,\\ \@consultantTitle{}} & \makecell{{\ifx\@isAuthorFemale\@true студентка \else студент \fi}группы \@authorGroup{} \\ образовательной программы \\ \@educationalProgram{}} \\
+    			\makecell[C]{Консультант,\\ \@consultantTitle{}} & \makecell[C]{{\ifx\@isAuthorFemale\@true студентка \else студент \fi}группы \@authorGroup{} \\ образовательной программы \\ \@educationalProgram{}} \\
     			& \\
     			\underline{\hspace{4cm}} \@consultantName{} & \underline{\hspace{4cm}} \@authorName{} \\
     			<<\underline{\hspace{1cm}}>> \underline{\hspace{3cm}} \@year{} г. & <<\underline{\hspace{1cm}}>> \underline{\hspace{3cm}} \@year{} г.\\
-    		\end{tabular}
+    		\end{tabularx}
+    		\end{table}
 		\else
-        	\begin{tabular}[h!]{P{0.45\textwidth}  P{0.45\textwidth}}
+            \begin{table}[h!]
+            \centering
+		    \begin{tabularx}{\textwidth}{C  C}
     			& \thead{\ifx\@isAuthorFemale\@true ВЫПОЛНИЛА \else ВЫПОЛНИЛ \fi}\\
     			& \\
-    			& \makecell{{\ifx\@isAuthorFemale\@true студентка \else студент \fi}группы \@authorGroup{} \\ образовательной программы \\ \@educationalProgram{}} \\
+    			& \makecell[C]{{\ifx\@isAuthorFemale\@true студентка \else студент \fi}группы \@authorGroup{} \\ образовательной программы \\ \@educationalProgram{}} \\
     			& \\
     			& \underline{\hspace{4cm}} \@authorName{} \\
     			& <<\underline{\hspace{1cm}}>> \underline{\hspace{3cm}} \@year{} г.\\
-    		\end{tabular}
+    		\end{tabularx}
+    		\end{table}
 		\fi
 
-        \vspace{30mm}
+    	\vfill
+    	\hfill
 
         \begin{center}
             \@city~\@year
         \end{center}
 
+        \hyphenchar\font=`\- % Enable hyphenation
         \vspace{-20mm}
         \clearpage
     \end{titlepage}
