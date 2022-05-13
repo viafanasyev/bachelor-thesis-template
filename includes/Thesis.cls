@@ -814,4 +814,11 @@
     sensitive=true
 }
 
+\lstdefinestyle{algorithmic}{
+    mathescape=true,
+    keywordstyle=\color{black}\bfseries,
+    keywords={input, output, return, datatype, function, procedure, in, if, else, for, foreach, while, begin, end}
+    numbers=left
+}
+
 % TODO: Smart figures, tables
