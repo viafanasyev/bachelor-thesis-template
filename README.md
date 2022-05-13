@@ -164,6 +164,20 @@ int main() {
 
 Кроме всех поддерживаемых пакетом `listings` языков, также можно использовать языки Kotlin (стиль взят [отсюда](https://github.com/cansik/kotlin-latex-listing)) и Golang (стиль взят [отсюда](https://github.com/korfuri/golang-latex-listings)).
 
+Присутствует отдельный стиль для написания псевдокода на алгоритмическом языке - `algorithmic`. Такой листинг может выглядеть так:
+```latex
+\begin{lstlisting}[style=algorithmic, caption={Какой-то псевдокод}]
+$i \gets 10$
+if $i \geq 5$ then
+    $i \gets i-1$
+else
+    if $i \leq 3$
+        $i \gets i+2$
+    end if
+end if
+\end{lstlisting}
+```
+
 Также присутствует возможность выделения конкретных фрагментов исходного кода. Для этого в листинге нужно добавить опцию `moredelim={**[is][\btHL]{[@}{@]}}`, а фрагмент кода выделить при помощи `[@` и `@]` (разделители можно заменить на любые другие). По умолчанию фрагмент выделяется серым прямоугольником, но есть возможность это конфигурировать, передавая команде `\btHL` опции стиля из пакета `tikz` (например, чтобы выделить оранжевым прямоугольником, можно использовать `moredelim={**[is][{\btHL[fill=orange!20]}]{[@}{@]}}`).
 
 Примеры листингов можно посмотреть [здесь](https://github.com/viafanasyev/bachelor-thesis-template/blob/master/main.pdf) в приложении А. Примеры использования команд можно посмотреть [здесь](https://github.com/viafanasyev/bachelor-thesis-template/blob/master/parts/addition-example-1.tex).
