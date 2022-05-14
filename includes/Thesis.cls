@@ -269,7 +269,7 @@
     \ifnum\totalfigures>0{, \totalfigures~\@quantityToLiteralRu{\totalfigures}{рисунка}{рисунков}}\fi%
     \ifnum\totallstlistings>0{, \totallstlistings~\@quantityToLiteralRu{\totallstlistings}{листинга}{листингов}}\fi%
     \ifnum\totaltables>0{, \totaltables~\@quantityToLiteralRu{\totaltables}{таблицы}{таблиц}}\fi%
-    \ifnum\totvalue{additionsnum}>0{, \totaladditions~\@quantityToLiteralRu{\totvalue{additionsnum}}{приложения}{приложений}}\fi%
+    \ifnum\totvalue{appendicesnum}>0{, \totalappendices~\@quantityToLiteralRu{\totvalue{appendicesnum}}{приложения}{приложений}}\fi%
     . %
         \ifnum\intcalcMod{\numexpr\totvalue{refsnum} / 10\relax}{10}=1{%
             Использовано \totalrefs~источников% X10 - X19
@@ -292,7 +292,7 @@
     \ifnum\totalfigures>0{, \totalfigures~\@quantityToLiteralEn{\totalfigures}{figure}{figures}}\fi%
     \ifnum\totallstlistings>0{, \totallstlistings~\@quantityToLiteralEn{\totallstlistings}{listing}{listings}}\fi%
     \ifnum\totaltables>0{, \totaltables~\@quantityToLiteralEn{\totaltables}{table}{tables}}\fi%
-    \ifnum\totvalue{additionsnum}>0{, \totaladditions~\@quantityToLiteralEn{\totvalue{additionsnum}}{addition}{additions}}\fi% TODO: Приложение == Addition?
+    \ifnum\totvalue{appendicesnum}>0{, \totalappendices~\@quantityToLiteralEn{\totvalue{appendicesnum}}{appendix}{appendices}}\fi
     . %
         \totalrefs~\@quantityToLiteralEn{\totvalue{refsnum}}{source is used}{sources are used}%
     .%
@@ -399,7 +399,7 @@
 %% References
 
 \newcommand{\@makeReferences}{
-    \label{LastPage} % Don't count bibliography and additions in total pages counter. TODO: Should it be here or after bibliography?
+    \label{LastPage} % Don't count bibliography and appendices in total pages counter. TODO: Should it be here or after bibliography?
     \clearpage % Original \printbibliography doesn't end page
     \phantomsection
     \begin{sloppypar} % Prevents overfull in bibliography
@@ -410,26 +410,32 @@
     \addcontentsline{toc}{section}{Список использованных источников}
 }
 
-%% Additions
+%% Appendices
 
-\newtotcounter{additionsnum}
-\newcommand{\@addition}[2]{
+\newtotcounter{appendicesnum}
+\newcommand{\@appendix}[2]{
     \clearpage
-    \stepcounter{additionsnum}
+    \stepcounter{appendicesnum}
     \begin{flushright}
-        \Large \textbf{\textsc{приложение \asbuk{additionsnum}}}
+        \Large \textbf{\textsc{приложение \asbuk{appendicesnum}}}
     \end{flushright}
     \setcounter{secnumdepth}{0}
-    \section[Приложение \Asbuk{additionsnum}]{#1}
+    \section[Приложение \Asbuk{appendicesnum}]{#1}
     \setcounter{secnumdepth}{4}
     \input{#2}
 }
 
-\newcommand*\@makeAdditions{%
+\newcommand*\@makeAppendices{%
     \titleformat{\section}[block]{\Large\bfseries\filcenter}{}{0mm}{}%
 }
 \newcommand*\addAddition[2]{%
-    \g@addto@macro\@makeAdditions{\@addition{#1}{#2}}%
+    \ClassWarning{Thesis}{%
+         '\noexpand\addAddition' is deprecated. Please use '\noexpand\addAppendix' instead%
+    }%
+    \addAppendix{#1}{#2}
+}
+\newcommand*\addAppendix[2]{%
+    \g@addto@macro\@makeAppendices{\@appendix{#1}{#2}}%
 }
 
 %% ====================================================================================================
@@ -438,7 +444,7 @@
 
 \newenvironment{thesis}[1][]{
     \renewcommand*\@makeChapters{}
-    \renewcommand*\@makeAdditions{\titleformat{\section}[block]{\Large\bfseries\filcenter}{}{0mm}{}}
+    \renewcommand*\@makeAppendices{\titleformat{\section}[block]{\Large\bfseries\filcenter}{}{0mm}{}}
     \renewcommand*\@makeAbstract{\@abstract{abstract-ru}{abstract-en}}
     \renewcommand*\@makeTerminology{\@terminology{terminology}}
     \renewcommand*\@makeIntro{\@intro{intro}}
@@ -446,7 +452,7 @@
     \setcounter{tocdepth}{4}
     \setcounter{chaptersnum}{0}
     \setcounter{refsnum}{0}
-    \setcounter{additionsnum}{0}
+    \setcounter{appendicesnum}{0}
     
     \document
         \setkeys{thesisKeys}{#1}
@@ -464,7 +470,7 @@
         \@makeChapters
         \@makeConclusion
         \@makeReferences
-        \@makeAdditions
+        \@makeAppendices
 
         \@setThesisKeysDefaults % Fallback arguments to defaults, so that current options won't be implicitly used later
     \enddocument
@@ -546,7 +552,7 @@
 \newcommand{\totalrefs}{\total{refsnum}}
 \newcommand{\totalpages}{\getpagerefnumber{LastPage}}
 \newcommand{\totalchapters}{\total{chaptersnum}}
-\newcommand{\totaladditions}{\total{additionsnum}}
+\newcommand{\totalappendices}{\total{appendicesnum}}
 
 % #1: number
 % #2: singular form

@@ -103,7 +103,7 @@ latexmk main -pdf
 * `\setIntroResource{path/to/intro}` - введение;
 * `\addChapter{Название главы}{path/to/chapter}` - добавление новой главы с указанным названием;
 * `\setConclusionResource{path/to/conclusion}` - заключение;
-* `\addAddition{Название приложения}{path/to/addition}` - добавление нового приложения с указанным названием.
+* `\addAppendix{Название приложения}{path/to/appendix}` - добавление нового приложения с указанным названием.
 
 Порядок указания команд влияет на порядок листов только в случае с главами и приложениями, в остальных случаях порядок не имеет значения.
 
@@ -180,7 +180,7 @@ end if
 
 Также присутствует возможность выделения конкретных фрагментов исходного кода. Для этого в листинге нужно добавить опцию `moredelim={**[is][\btHL]{[@}{@]}}`, а фрагмент кода выделить при помощи `[@` и `@]` (разделители можно заменить на любые другие). По умолчанию фрагмент выделяется серым прямоугольником, но есть возможность это конфигурировать, передавая команде `\btHL` опции стиля из пакета `tikz` (например, чтобы выделить оранжевым прямоугольником, можно использовать `moredelim={**[is][{\btHL[fill=orange!20]}]{[@}{@]}}`).
 
-Примеры листингов можно посмотреть [здесь](https://github.com/viafanasyev/bachelor-thesis-template/blob/master/main.pdf) в приложении А. Примеры использования команд можно посмотреть [здесь](https://github.com/viafanasyev/bachelor-thesis-template/blob/master/parts/addition-example-1.tex).
+Примеры листингов можно посмотреть [здесь](https://github.com/viafanasyev/bachelor-thesis-template/blob/master/main.pdf) в приложении А. Примеры использования команд можно посмотреть [здесь](https://github.com/viafanasyev/bachelor-thesis-template/blob/master/parts/appendix-example-1.tex).
 
 ### Подсчёт количества используемых страниц, рисунков и т.п. <a name="counters"></a>
 
@@ -218,7 +218,7 @@ end if
 
 Вариант 2. Используем подход [отсюда](https://tex.stackexchange.com/questions/42054/custom-line-numbers-in-lstlisting-environment), перенумеруя каждую строку вручную. Подход трудоёмкий, но куда более элегантный.
 
-Примеры использования обоих вариантов можно посмотреть [здесь](https://github.com/viafanasyev/bachelor-thesis-template/blob/master/parts/addition-example-1.tex).
+Примеры использования обоих вариантов можно посмотреть [здесь](https://github.com/viafanasyev/bachelor-thesis-template/blob/master/parts/appendix-example-1.tex).
 
 ### В листинге для Java не выделяются аннотации
 
