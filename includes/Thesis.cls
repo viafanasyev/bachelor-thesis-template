@@ -401,7 +401,6 @@
 %% References
 
 \newcommand{\@makeReferences}{
-    \label{LastPage} % Don't count bibliography and appendices in total pages counter. TODO: Should it be here or after bibliography?
     \clearpage % Original \printbibliography doesn't end page
     \phantomsection
     \begin{sloppypar} % Prevents overfull in bibliography
@@ -472,6 +471,7 @@
         \@makeChapters
         \@makeConclusion
         \@makeReferences
+        \label{LastPage} % Don't count appendices in total pages counter
         \@makeAppendices
 
         \@setThesisKeysDefaults % Fallback arguments to defaults, so that current options won't be implicitly used later
