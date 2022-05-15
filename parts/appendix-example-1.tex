@@ -113,10 +113,14 @@ athrow
 ...
 \end{lstlisting}
 
+\clearpage
+
 А тут ссылка на таблицу~\ref{table:1}.
 
-\begin{table}[h!]
+\begin{table}[!htb]
 \centering
+\caption{Пример таблицы}
+\label{table:1}
 \begin{tabular}{| c | c | c | c |} 
     \hline
     Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
@@ -132,8 +136,6 @@ athrow
     5 & 88 & 788 & 6344 \\
     \hline
 \end{tabular}
-\caption{Пример таблицы}
-\label{table:1}
 \end{table}
 
 \begin{lstlisting}[style=algorithmic, caption={Привер псевдокода на алгоритмическом языке}]
