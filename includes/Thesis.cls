@@ -154,6 +154,7 @@
     \clearpage
     \hyphenchar\font=-1 % Disable hyphenation temporarily
 
+    \begin{singlespace} % 1 spacing for title page
     \begin{titlepage}
         \begin{center}
             \textbf{\@institute}
@@ -254,6 +255,7 @@
         \vspace{-20mm}
         \clearpage
     \end{titlepage}
+    \end{singlespace}
 
     \pagestyle{fancy}
 
@@ -499,6 +501,7 @@
 }
 
 \geometry{left=10mm, right=10mm, top=25mm, bottom=25mm, headheight=25mm}
+\onehalfspacing % 1.5 line spacing for all pages
 
 \DeclareCaptionLabelSeparator{emdash}{ --- }
 \captionsetup{
