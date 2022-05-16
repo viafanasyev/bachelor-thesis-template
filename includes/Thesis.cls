@@ -500,7 +500,8 @@
     unicode=true
 }
 
-\geometry{left=10mm, right=10mm, top=25mm, bottom=25mm, headheight=25mm}
+\parindent=12.5mm
+\geometry{a4paper, total={210mm, 297mm}, left=30mm, right=15mm, top=20mm, bottom=20mm, headheight=20mm}
 \onehalfspacing % 1.5 line spacing for all pages
 
 \DeclareCaptionLabelSeparator{emdash}{ --- }
@@ -743,7 +744,7 @@
     \DTLifdbexists{list}{\DTLcleardb{list}}{\DTLnewdb{list}}
 }{
     \DTLsort*{termLabel}{list}
-    \begin{itemize}
+    \begin{itemize}[leftmargin=0pt, itemindent=\parindent]
         \DTLforeach*{list}{\theLabel=termLabel, \theDesc=termDesc}{\item[] \textbf{\theLabel}~-- \theDesc.}
     \end{itemize}
 }
