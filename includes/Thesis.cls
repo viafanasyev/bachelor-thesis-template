@@ -465,8 +465,8 @@
         \setcounter{lstlisting}{0}
 
         \@makeAbstract
-        \@makeTerminology
         \@makeContents
+        \@makeTerminology
         \@makeIntro
         \@makeChapters
         \@makeConclusion
