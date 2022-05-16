@@ -250,9 +250,9 @@
         \begin{center}
             \@city~\@year
         \end{center}
+        \vspace{-15mm}
 
         \hyphenchar\font=`\- % Enable hyphenation
-        \vspace{-20mm}
         \clearpage
     \end{titlepage}
     \end{singlespace}
