@@ -501,7 +501,7 @@
 }
 
 \parindent=12.5mm
-\geometry{a4paper, total={210mm, 297mm}, left=30mm, right=15mm, top=20mm, bottom=20mm, headheight=20mm}
+\geometry{left=30mm, right=15mm, top=20mm, bottom=20mm, headheight=20mm}
 \onehalfspacing % 1.5 line spacing for all pages
 
 \DeclareCaptionLabelSeparator{emdash}{ --- }
