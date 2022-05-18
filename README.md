@@ -48,7 +48,7 @@
 
 Во-первых, вам потребуется загрузить несколько пакетов. Сделать это можно следующей командой:
 ```bash
-sudo apt-get install texlive-formats-extra texlive-lang-cyrillic texlive-bibtex-extra
+sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra texlive-formats-extra texlive-lang-cyrillic texlive-bibtex-extra biber
 ```
 
 Во-вторых, нужно будет запустить компилятор несколько раз, а также `biber`:
