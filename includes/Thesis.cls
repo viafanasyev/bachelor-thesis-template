@@ -268,9 +268,9 @@
     Данная работа состоит из %
     \totalpages~\@quantityToLiteralRu{\totalpages}{страницы}{страниц}%
     , \totalchapters~\@quantityToLiteralRu{\totvalue{chaptersnum}}{главы}{глав}%
-    \ifnum\totalfigures>0{, \totalfigures~\@quantityToLiteralRu{\totalfigures}{рисунка}{рисунков}}\fi%
-    \ifnum\totallstlistings>0{, \totallstlistings~\@quantityToLiteralRu{\totallstlistings}{листинга}{листингов}}\fi%
-    \ifnum\totaltables>0{, \totaltables~\@quantityToLiteralRu{\totaltables}{таблицы}{таблиц}}\fi%
+    \iftotalfigures{, \totalfigures~\@quantityToLiteralRu{\totalfigures}{рисунка}{рисунков}}\fi%
+    \iftotallstlistings{, \totallstlistings~\@quantityToLiteralRu{\totallstlistings}{листинга}{листингов}}\fi%
+    \iftotaltables{, \totaltables~\@quantityToLiteralRu{\totaltables}{таблицы}{таблиц}}\fi%
     \ifnum\totvalue{appendicesnum}>0{, \totalappendices~\@quantityToLiteralRu{\totvalue{appendicesnum}}{приложения}{приложений}}\fi%
     . %
         \ifnum\intcalcMod{\numexpr\totvalue{refsnum} / 10\relax}{10}=1{%
@@ -291,9 +291,9 @@
     The paper contains %
     \totalpages~\@quantityToLiteralEn{\totalpages}{page}{pages}%
     , \totalchapters~\@quantityToLiteralEn{\totvalue{chaptersnum}}{chapter}{chapters}%
-    \ifnum\totalfigures>0{, \totalfigures~\@quantityToLiteralEn{\totalfigures}{figure}{figures}}\fi%
-    \ifnum\totallstlistings>0{, \totallstlistings~\@quantityToLiteralEn{\totallstlistings}{listing}{listings}}\fi%
-    \ifnum\totaltables>0{, \totaltables~\@quantityToLiteralEn{\totaltables}{table}{tables}}\fi%
+    \iftotalfigures{, \totalfigures~\@quantityToLiteralEn{\totalfigures}{figure}{figures}}\fi%
+    \iftotallstlistings{, \totallstlistings~\@quantityToLiteralEn{\totallstlistings}{listing}{listings}}\fi%
+    \iftotaltables{, \totaltables~\@quantityToLiteralEn{\totaltables}{table}{tables}}\fi%
     \ifnum\totvalue{appendicesnum}>0{, \totalappendices~\@quantityToLiteralEn{\totvalue{appendicesnum}}{appendix}{appendices}}\fi
     . %
         \totalrefs~\@quantityToLiteralEn{\totvalue{refsnum}}{source is used}{sources are used}%
