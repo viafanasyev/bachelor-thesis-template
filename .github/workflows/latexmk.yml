@@ -18,7 +18,6 @@ jobs:
       - name: Generate PDF
         uses: xu-cheng/latex-action@v2
         with:
-          extra_system_packages: texlive-formats-extra texlive-lang-cyrillic texlive-bibtex-extra
           root_file: main.tex
       - name: Commit PDF
         run: |
