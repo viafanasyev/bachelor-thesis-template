@@ -3,8 +3,18 @@ name: latexmk
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'includes/**'
+      - 'parts/**'
+      - 'main.tex'
+      - '.github/workflows/latexmk.yml'
   pull_request:
     branches: [ master ]
+    paths:
+      - 'includes/**'
+      - 'parts/**'
+      - 'main.tex'
+      - '.github/workflows/latexmk.yml'
 
   workflow_dispatch:
 
