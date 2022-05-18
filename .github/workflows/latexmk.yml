@@ -1,0 +1,30 @@
+name: latexmk
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build-example:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up repo
+        uses: actions/checkout@v3
+      - name: Generate PDF
+        uses: xu-cheng/latex-action@v2
+        with:
+          extra_system_packages: texlive-formats-extra texlive-lang-cyrillic texlive-bibtex-extra
+          root_file: main.tex
+      - name: Commit PDF
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add main.pdf
+          git commit -m "[CI] Rebuild example"
+          git push
+
