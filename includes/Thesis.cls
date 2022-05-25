@@ -404,9 +404,7 @@
     \clearpage % Original \printbibliography doesn't end page
     \phantomsection
     \begin{sloppypar} % Prevents overfull in bibliography
-    \begin{refcontext}[sorting={\@refsSorting}]
     \printbibliography[title=Список использованных источников]
-    \end{refcontext}
     \end{sloppypar}
     \addcontentsline{toc}{section}{Список использованных источников}
 }
@@ -464,6 +462,8 @@
         \setcounter{table}{0}
         \setcounter{lstlisting}{0}
 
+        \begin{refcontext}[sorting={\@refsSorting}]
+
         \@makeAbstract
         \@makeContents
         \@makeTerminology
@@ -473,6 +473,8 @@
         \@makeReferences
         \label{LastPage} % Don't count appendices in total pages counter
         \@makeAppendices
+
+        \end{refcontext}
 
         \@setThesisKeysDefaults % Fallback arguments to defaults, so that current options won't be implicitly used later
     \enddocument
