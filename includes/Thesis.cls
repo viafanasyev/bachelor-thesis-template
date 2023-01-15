@@ -416,11 +416,12 @@
 \newcommand{\@appendix}[2]{
     \clearpage
     \refstepcounter{appendicesnum}
+    \label{appendix:\arabic{appendicesnum}}
     \begin{flushright}
-        \Large \textbf{\textsc{приложение \asbuk{appendicesnum}}}
+        \Large \textbf{\textsc{приложение \theappendicesnum{}}}
     \end{flushright}
     \setcounter{secnumdepth}{0}
-    \section[Приложение \Asbuk{appendicesnum}]{#1}
+    \section[Приложение \theappendicesnum{}]{#1}
     \setcounter{secnumdepth}{4}
     \input{#2}
 }
