@@ -25,6 +25,7 @@
     3. [Метки TODO](#todos)
     4. [Листинги](#listings)
     5. [Подсчёт количества используемых страниц, рисунков и т.п.](#counters)
+    6. [Ссылка на приложение](#appendix-reference)
 3. [Q&A](#qna)
 4. [Нашёл ошибку / Хочу помочь](#contributing)
 
@@ -201,6 +202,10 @@ end if
 Если используется какое-то другое окружение вместо `figure`/`lstlisting`/`table`, можно инкрементировать счётчик вручную при помощи `\stepcounter{table}`/`\stepcounter{lstlisting}`/`\stepcounter{table}`.
 
 Количеством страниц считается номер последней страницы списка источников (т.е. в количестве страниц учитывается всё, кроме приложений).
+
+### Ссылка на приложение <a name="appendix-reference"></a>
+
+На приложения можно ссылаться при помощи `\ref{appendix:N}`, где `N` - номер приложения (нумерация с единицы). Пример можно посмотреть [здесь](https://github.com/viafanasyev/bachelor-thesis-template/blob/master/parts/appendix-example-1.tex).
 
 ## Q&A <a name="qna"></a>
 
