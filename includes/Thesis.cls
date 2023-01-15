@@ -412,9 +412,10 @@
 %% Appendices
 
 \newtotcounter{appendicesnum}
+\renewcommand\theappendicesnum{\Asbuk{appendicesnum}}
 \newcommand{\@appendix}[2]{
     \clearpage
-    \stepcounter{appendicesnum}
+    \refstepcounter{appendicesnum}
     \begin{flushright}
         \Large \textbf{\textsc{приложение \asbuk{appendicesnum}}}
     \end{flushright}
